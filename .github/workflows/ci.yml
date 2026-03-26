@@ -45,5 +45,5 @@ jobs:
 
     - name: Test with unittest
       run: |
-        unittest
+        $python -m unittest -v
 
