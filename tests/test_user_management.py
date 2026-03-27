@@ -50,6 +50,14 @@ class TestUserManagement(unittest.TestCase):
                            "StrongP@ssw0rd", "1990-01-01")
         self.assertTrue(delete_user(user["id"]))
         self.assertIsNone(get_user(user["id"]))
+    
+    def test_list_email(self):
+        user2 = create_user("Example2", "example2@domain.com",
+                           "StrongP@ssw0rd", "1990-01-01")
+        user1 = create_user("Example", "example1@domain.com",
+                           "StrongP@ssw0rd", "1990-01-01")
+        self.assertEqual(list_users()[0]["email"], "example1@domain.com")
+        self.assertEqual(list_users()[1]["email"], "example2@domain.com")
 
 
 if __name__ == "__main__":
